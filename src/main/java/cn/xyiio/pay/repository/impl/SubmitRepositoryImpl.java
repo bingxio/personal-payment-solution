@@ -46,8 +46,8 @@ public class SubmitRepositoryImpl implements SubmitRepository, CommonHasOrderSch
             return StatusCode.ERR_SAVE_RUN_TASK;
         }
 
-        UpdateResult updateResult = mongoTemplate.updateFirst(new Query().addCriteria(Criteria.where("hasOrder").is(false)),
-                Update.update("hasOrder", true).set("updateAt", DateUtils.currentAt()), CommonEntity.class);
+        UpdateResult updateResult = mongoTemplate.updateFirst(new Query().addCriteria(Criteria.where("hasOrder")
+                .is(false)), Update.update("hasOrder", true).set("updateAt", DateUtils.currentAt()), CommonEntity.class);
 
         if (updateResult.getModifiedCount() == 0) {
             return StatusCode.ERR_DATABASE;
@@ -75,8 +75,8 @@ public class SubmitRepositoryImpl implements SubmitRepository, CommonHasOrderSch
         SubmitEntity submitEntity = mongoTemplate.find(new Query().with(new Sort(Sort.Direction.DESC, "_id")),
                 SubmitEntity.class).get(0);
 
-        UpdateResult updateResult = mongoTemplate.updateFirst(new Query(Criteria.where("createAt").is(submitEntity.getCreateAt())),
-                Update.update("payed", true), SubmitEntity.class);
+        UpdateResult updateResult = mongoTemplate.updateFirst(new Query(Criteria.where("createAt")
+                .is(submitEntity.getCreateAt())), Update.update("payed", true), SubmitEntity.class);
 
         if (updateResult.getModifiedCount() == 0) {
             return StatusCode.ERR_DATABASE;
