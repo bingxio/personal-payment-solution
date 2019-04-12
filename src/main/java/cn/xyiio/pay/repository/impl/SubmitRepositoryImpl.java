@@ -92,7 +92,7 @@ public class SubmitRepositoryImpl implements SubmitRepository, CommonHasOrderSch
 
     @Override
     public SubmitEntity queryLastLimit(String secret) {
-        if (isSecret(secret, false)) return null;
+        if (isSecret(secret, false)) return new SubmitEntity(0, false, "");
 
         return mongoTemplate.find(new Query().with(new Sort(Sort.Direction.DESC, "_id")),
                 SubmitEntity.class).get(0);
