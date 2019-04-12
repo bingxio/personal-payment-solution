@@ -1,7 +1,6 @@
 package cn.xyiio.pay.controller;
 
-import cn.xyiio.pay.entity.CommonEntity;
-import cn.xyiio.pay.entity.ResponseEntity;
+import cn.xyiio.pay.entity.api.ResponseEntity;
 import cn.xyiio.pay.entity.SubmitEntity;
 import cn.xyiio.pay.errno.StatusCode;
 import cn.xyiio.pay.repository.impl.SubmitRepositoryImpl;
@@ -18,16 +17,6 @@ public class SubmitController {
     @Autowired
     public SubmitController(SubmitRepositoryImpl submitRepository) {
         this.submitRepository = submitRepository;
-    }
-
-    /**
-     * 获取公有配置、当前是否有订单、当前的随机值
-     *
-     * @return  响应
-     */
-    @GetMapping("/api/common")
-    private ResponseEntity<CommonEntity> common() {
-        return new ResponseEntity<>(StatusCode.OK.ordinal(), "OK", submitRepository.findCommonEntity());
     }
 
     /**

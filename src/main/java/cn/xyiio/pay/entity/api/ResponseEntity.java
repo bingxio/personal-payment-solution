@@ -1,4 +1,4 @@
-package cn.xyiio.pay.entity;
+package cn.xyiio.pay.entity.api;
 
 public class ResponseEntity<T> {
 

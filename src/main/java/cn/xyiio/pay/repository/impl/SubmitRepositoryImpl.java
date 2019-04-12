@@ -33,17 +33,6 @@ public class SubmitRepositoryImpl implements SubmitRepository, CommonHasOrderSch
     }
 
     @Override
-    public CommonEntity findCommonEntity() {
-        if (!mongoTemplate.collectionExists(CommonEntity.class)) {
-            mongoTemplate.save(
-                    new CommonEntity(false, DateUtils.currentAt(), "")
-            );
-        }
-
-        return mongoTemplate.findAll(CommonEntity.class).get(0);
-    }
-
-    @Override
     public void OnTaskRunningEnd() {
         mongoTemplate.updateFirst(new Query().addCriteria(Criteria.where("hasOrder").is(true)),
                 Update.update("hasOrder", false).set("updateAt", DateUtils.currentAt()), CommonEntity.class);
