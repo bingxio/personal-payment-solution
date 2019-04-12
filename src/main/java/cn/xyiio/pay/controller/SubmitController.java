@@ -30,7 +30,8 @@ public class SubmitController {
      * @return      响应
      */
     @PostMapping("/api/submit")
-    private ResponseEntity<SubmitEntity> submit(@RequestParam("money") int money, @RequestParam("secret") String secret) {
+    private ResponseEntity<SubmitEntity> submit(@RequestParam("money") int money,
+                                                @RequestParam("secret") String secret) {
         SubmitEntity submitEntity = new SubmitEntity(money, false, DateUtils.currentAt());
 
         StatusCode statusCode = submitRepository.saveSubmit(submitEntity, secret);
