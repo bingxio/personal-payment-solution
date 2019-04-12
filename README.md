@@ -13,7 +13,7 @@ POST /api/submit/update   # 更新订单支付状态
 GET  /api/submit/last     # 获取订单
 ```
 
-逻辑查看 controller 层
+逻辑查看 controller 层和 repository 层
 
 ### application.yaml
 
