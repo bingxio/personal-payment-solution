@@ -33,3 +33,11 @@ secret:
   api:    # /api/submit /api/submit/last 接口的 secret 字段
   order:  # /api/submit/update 接口的 secret 字段
 ```
+### run
+
+```
+.\gradlew.bat build
+.\gradlew.bat jar
+
+java -jar .\build\libs\pay-0.0.1-SNAPSHOT.jar
+```
