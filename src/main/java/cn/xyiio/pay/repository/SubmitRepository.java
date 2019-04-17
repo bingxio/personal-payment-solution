@@ -11,4 +11,6 @@ public interface SubmitRepository {
 
     SubmitEntity queryLastLimit(String secret);
 
+    StatusCode destruction(String secret);
+
 }

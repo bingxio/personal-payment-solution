@@ -98,6 +98,17 @@ public class SubmitRepositoryImpl implements SubmitRepository, CommonHasOrderSch
                 SubmitEntity.class).get(0);
     }
 
+    @Override
+    public StatusCode destruction(String secret) {
+        if (isSecret(secret, false)) return StatusCode.ERR_SECRET;
+
+        CommonHasOrderScheduleTask.hasRun = false;
+
+        this.OnTaskRunningEnd();
+
+        return StatusCode.OK;
+    }
+
     private boolean isSecret(String secret, boolean isOrder) {
         String envSecret = environment.getProperty("secret.api");
 

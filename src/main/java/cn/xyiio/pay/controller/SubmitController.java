@@ -88,4 +88,18 @@ public class SubmitController {
     private ResponseEntity<SubmitEntity> query(@RequestParam("secret") String secret) {
         return new ResponseEntity<>(StatusCode.OK.ordinal(), "OK", submitRepository.queryLastLimit(secret));
     }
+
+    /**
+     * 开启新的支付流程
+     *
+     * -> 用于用户取消订单，防止阻塞其他用户支付
+     *
+     * @return 响应
+     */
+    @PostMapping("/api/submit/destruction")
+    private ResponseEntity<StatusCode> destruction(@RequestParam("secret") String secret) {
+        StatusCode statusCode = submitRepository.destruction(secret);
+
+        return new ResponseEntity<>(StatusCode.OK.ordinal(), "OK", null);
+    }
 }

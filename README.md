@@ -10,10 +10,11 @@
 - APP 限制在五分钟内进行支付结果查询，GET /submit/last 接口，即查询最近的订单，判断 payed 字段表示是否支付
 
 ```
-GET  /api/common          # 获取公有状态信息
-POST /api/submit          # 新增订单
-POST /api/submit/update   # 更新订单支付状态
-GET  /api/submit/last     # 获取订单
+GET  /api/common                # 获取公有状态信息
+POST /api/submit                # 新增订单
+POST /api/submit/update         # 更新订单支付状态
+GET  /api/submit/last           # 获取订单
+POST /api/submit/destruction    # 取消当前正在支付的订单
 ```
 
 逻辑查看 controller 层和 repository 层
