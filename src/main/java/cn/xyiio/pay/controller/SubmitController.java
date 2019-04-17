@@ -98,8 +98,6 @@ public class SubmitController {
      */
     @PostMapping("/api/submit/destruction")
     private ResponseEntity<StatusCode> destruction(@RequestParam("secret") String secret) {
-        StatusCode statusCode = submitRepository.destruction(secret);
-
-        return new ResponseEntity<>(StatusCode.OK.ordinal(), "OK", null);
+        return new ResponseEntity<>(submitRepository.destruction(secret).ordinal(), "OK", null);
     }
 }
