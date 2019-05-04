@@ -10,7 +10,7 @@
 
 个人用户使用支付宝、微信收款实时到账监听系统
 
-测试视频：[Bilibili](https://www.bilibili.com/video/av49083749/)
+测试视频：[Bilibili](https://www.bilibili.com/video/av49083749/)  
 演示地址：[测试页面](http://118.24.222.113/)
 
 - APP 拉取当前公有的状态信息 CommonEntity 判断 hasOrder 字段真假，为真则等待五分钟后再进行支付操作
