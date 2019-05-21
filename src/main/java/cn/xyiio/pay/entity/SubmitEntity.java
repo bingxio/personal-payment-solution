@@ -48,7 +48,8 @@ public class SubmitEntity {
 
     @Override
     public String toString() {
-        return "SubmitEntity: [ id = " + id + ", money = " + money + ", payed = " + payed + ", currentAt = " + createAt + " ]";
+        return "SubmitEntity: [ id = " + id + ", money = " + money + ", payed = " + payed + 
+            ", currentAt = " + createAt + " ]";
     }
 
     public void setMoney(int money) {
